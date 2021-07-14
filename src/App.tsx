@@ -12,11 +12,19 @@ function App() {
     setTodos((prev) => {
       return prev.concat(newTodo)
     })
+    console.log(todos)
+  }
+
+  const removeTodo = (id: string) => {
+    setTodos((prev) => {
+      return prev.filter(todo => todo.id != id)
+    })
+    console.log(todos)
   }
   return (
     <div className="App">
       <NewTodo addTodo={addNewTodo} />
-      <Todos items={todos} />
+      <Todos items={todos} removeTodo={removeTodo} />
     </div>
   );
 }
